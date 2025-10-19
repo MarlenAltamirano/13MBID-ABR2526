@@ -1,0 +1,6 @@
+[core]
+    remote = storage
+['remote "main"']
+    url = https://github.com/MarlenAltamirano/13MBID-ABR2526
+['remote "storage"']
+    url = ../.datastorage
