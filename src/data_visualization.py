@@ -371,8 +371,8 @@ if __name__ == "__main__":
     """
     
     # Configuración: cambiar estas rutas según tu proyecto
-    RUTA_DATOS = '../data/raw/bank-additional-full.csv'
-    CARPETA_GRAFICOS = '../docs/figures'
+    RUTA_DATOS = 'data/raw/bank-additional-full.csv'
+    CARPETA_GRAFICOS = 'docs/figures'
     COLUMNA_OBJETIVO = 'y'
     
     # Ejecutar la exploración
