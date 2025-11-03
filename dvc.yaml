@@ -10,6 +10,7 @@ stages:
     deps:
       - test/test_data_quality.py
       - data/raw/bank-additional-full.csv
-    
+    outs:
+    - docs/test_results/reporte_calidad.html
 
     
