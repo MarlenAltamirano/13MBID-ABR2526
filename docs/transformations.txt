@@ -1,0 +1,40 @@
+======================================================================
+REGISTRO DE TRANSFORMACIONES DEL DATASET
+======================================================================
+
+1. SELECCIÓN DE DATOS
+----------------------------------------------------------------------
+   - Se eliminó la columna 'default':
+     * Razón: Baja variedad (99.9% de una sola clase)
+     * Razón: Alta proporción de valores nulos (>20%)
+
+2. LIMPIEZA DE DATOS
+----------------------------------------------------------------------
+   - Se reemplazaron valores 'unknown' por NaN
+   - Se eliminaron 2956 filas:
+     * Filas con valores nulos
+     * Filas duplicadas
+
+3. CONSTRUCCIÓN DE DATOS
+----------------------------------------------------------------------
+   - Se creó la variable 'had_previous_contact':
+     * Binarización basada en 'pdays'
+     * 1: Hubo contacto previo (pdays != 999)
+     * 0: No hubo contacto previo (pdays == 999)
+   - Se eliminó la columna 'pdays' (reemplazada por la nueva variable)
+
+4. FORMATEO DE DATOS
+----------------------------------------------------------------------
+   - Se normalizaron los nombres de columnas (puntos por guiones bajos)
+   - Se codificó la variable objetivo 'y':
+     * 'yes' -> 1
+     * 'no' -> 0
+
+======================================================================
+RESUMEN
+======================================================================
+Dataset original:  41,188 filas × 21 columnas
+Dataset procesado: 38,232 filas × 20 columnas
+Filas eliminadas:  2,956 (7.18%)
+Columnas eliminadas: 1
+======================================================================
