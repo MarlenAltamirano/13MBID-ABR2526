@@ -13,3 +13,54 @@ stages:
       md5: 4fdf22ad702f0255307bd24b1f57172b.dir
       size: 3576917
       nfiles: 32
+  test_data_gx:
+    cmd: pytest  test/test_data_gx.py
+    deps:
+    - path: data/raw/bank-additional-full.csv
+      hash: md5
+      md5: f6cb2c1256ffe2836b36df321f46e92c
+      size: 5834924
+    - path: test/test_data_quality.py
+      hash: md5
+      md5: 4e1adcfc810f36da24774692d9616fc1
+      size: 13123
+  preprocess_data:
+    cmd: python src/data_preparation.py
+    deps:
+    - path: data/raw/bank-additional-full.csv
+      hash: md5
+      md5: f6cb2c1256ffe2836b36df321f46e92c
+      size: 5834924
+    - path: src/data_preparation.py
+      hash: md5
+      md5: ae8db380896455c28fc8619170f92b41
+      size: 11371
+    outs:
+    - path: data/processed/bank-processed.csv
+      hash: md5
+      md5: dc9cd7182ea0886d95f22b7acbefa7a2
+      size: 4328524
+  train_model:
+    cmd: python src/train_model.py
+    deps:
+    - path: data/processed/bank-processed.csv
+      hash: md5
+      md5: dc9cd7182ea0886d95f22b7acbefa7a2
+      size: 4328524
+    - path: src/train_model.py
+      hash: md5
+      md5: 56ab5ba5df31dad894e9f8e0c49e3352
+      size: 12411
+    outs:
+    - path: metrics/metrics.json
+      hash: md5
+      md5: f2e59254602d4f31a6104e4512dae10d
+      size: 203
+    - path: models/knn_model.pkl
+      hash: md5
+      md5: bb4039e8e526a495176fb4d7031853c3
+      size: 2047140
+    - path: models/preprocessor.pkl
+      hash: md5
+      md5: e772bb3d503872c2e7300d94c6f50174
+      size: 6307

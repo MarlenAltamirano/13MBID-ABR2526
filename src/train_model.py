@@ -154,7 +154,7 @@ def balance_data(X, y, random_state=42):
 
 def train_model(
     data_path: str = 'data/processed/data.csv',
-    model_output_path: str = 'models/decision_tree_model',
+    model_output_path: str = 'models/knn_model',
     preprocessor_output_path: str = 'models/preprocessor.pkl',
     metrics_output_path: str = 'models/metrics.json'
 ):
@@ -327,25 +327,25 @@ if __name__ == "__main__":
     parser.add_argument(
         "--data-path",
         type=str,
-        default="../data/processed/bank-processed.csv",
+        default="data/processed/bank-processed.csv",
         help="Ruta al archivo de datos procesados"
     )
     parser.add_argument(
         "--model-output",
         type=str,
-        default="../models/decision_tree_model.pkl",
+        default="models/knn_model.pkl",
         help="Ruta donde guardar el modelo"
     )
     parser.add_argument(
         "--preprocessor-output",
         type=str,
-        default="../models/preprocessor.pkl",
+        default="models/preprocessor.pkl",
         help="Ruta donde guardar el preprocesador"
     )
     parser.add_argument(
         "--metrics-output",
         type=str,
-        default="../metrics/metrics.json",
+        default="metrics/metrics.json",
         help="Ruta donde guardar las métricas"
     )
     

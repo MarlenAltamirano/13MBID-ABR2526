@@ -5,13 +5,13 @@ stages:
       - data/raw/bank-additional-full.csv
     outs:
       - docs/figures/
-  test_data_quality:
-    cmd: pytest -v -s --html=docs/test_results/reporte_calidad.html --self-contained-html test/test_data_quality.py 
-    deps:
-      - test/test_data_quality.py
-      - data/raw/bank-additional-full.csv
-    outs:
-    - docs/test_results/reporte_calidad.html
+  # test_data_quality:
+  #   cmd: pytest -v -s --html=docs/test_results/reporte_calidad.html --self-contained-html test/test_data_quality.py 
+  #   deps:
+  #     - test/test_data_quality.py
+  #     - data/raw/bank-additional-full.csv
+    # outs:
+    # - docs/test_results/reporte_calidad.html
   test_data_gx:
     cmd: pytest  test/test_data_gx.py 
     deps: 
@@ -24,6 +24,15 @@ stages:
       - src/data_preparation.py
     outs:
       - data/processed/bank-processed.csv
+  train_model:
+    cmd: python src/train_model.py
+    deps:
+      - data/processed/bank-processed.csv
+      - src/train_model.py
+    outs:
+      - models/knn_model.pkl
+      - models/preprocessor.pkl
+      - metrics/metrics.json
 
 
     
