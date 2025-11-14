@@ -29,7 +29,7 @@ class PredictionRequest(BaseModel):
     cons_conf_idx: float = Field(..., description="Índice de confianza del consumidor")
     euribor3m: float = Field(..., description="Tasa Euribor a 3 meses")
     nr_employed: float = Field(..., description="Número de empleados")
-    had_previous_contact: str = Field(..., description="Si fue contactado anteriormente: 'yes' o 'no'")
+    had_previous_contact: str = Field(..., description="Si fue contactado anteriormente: '0' o '1'")
 
     class Config:
         json_schema_extra = {
@@ -52,7 +52,7 @@ class PredictionRequest(BaseModel):
                 "cons_conf_idx": -36.4,
                 "euribor3m": 4.857,
                 "nr_employed": 5191.0,
-                "has_previous_contact": "no"
+                "has_previous_contact": "1"
             }
         }
 
